@@ -79,7 +79,7 @@ provider "aws" {
     resourcegroupstaggingapi = "http://localhost:4566"
     route53 = "http://localhost:4566"
     route53resolver = "http://localhost:4566"
-    s3 = "http://s3.localhost.cloud:4566"
+    s3 = "http://s3.localhost.localstack.cloud:4566"
     s3control = "http://localhost:4566"
     sagemaker = "http://localhost:4566"
     sagemakerruntime = "http://localhost:4566"
