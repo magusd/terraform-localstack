@@ -1,0 +1,36 @@
+
+name: CI
+on: push
+
+jobs:
+# Label of the container job
+  test:
+    name: xasda
+    # Containers must run in Linux based operating systems
+    runs-on: ubuntu-latest
+    # Docker Hub image that `container-job` executes in
+    container: node:16-bullseye
+    # Service containers to run with `container-job`
+    services:
+    # Label used to access the service container
+      localstack:
+    # Docker Hub image
+        image: localstack/localstack
+        ports:
+          - "4566:4566"
+          - "4510-4559:4510-4559"
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Terraform
+        uses: little-core-labs/install-terraform@v2.0.0
+        with:
+          version: 1.4.1
+      - name: Setup terraform+localstack
+        run: cp .github/workflows/localstack_providers_override.tf .
+      - name: Terraform apply
+        run: |
+          terraform init
+          terraform plan
+          terraform apply -auto-approve
+
+
