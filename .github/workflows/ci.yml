@@ -5,7 +5,7 @@ on: push
 jobs:
 # Label of the container job
   test:
-    name: xasda
+    name: Terraform test
     # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
     # Docker Hub image that `container-job` executes in
@@ -26,7 +26,7 @@ jobs:
         with:
           version: 1.4.1
       - name: Setup terraform+localstack
-        run: cp .github/workflows/localstack_providers_override.tf .
+        run: cp .github/workflows/localstack.tf localstack_providers_override.tf
       - name: Terraform apply
         run: |
           terraform init
