@@ -15,7 +15,7 @@ jobs:
     # Label used to access the service container
       localstack:
     # Docker Hub image
-        image: localstack/localstack
+        image: localstack/localstack:2.0.2
         ports:
           - "4566:4566"
           - "4510-4559:4510-4559"
