@@ -21,10 +21,9 @@ jobs:
           - "4510-4559:4510-4559"
     steps:
       - uses: actions/checkout@v2
-      - name: Install Terraform
-        uses: little-core-labs/install-terraform@v2.0.0
+      - uses: hashicorp/setup-terraform@v2
         with:
-          version: 1.4.1
+          terraform_version: 1.4.1
       - name: Setup terraform+localstack
         run: cp .github/workflows/localstack.tf localstack_providers_override.tf
       - name: Terraform apply
