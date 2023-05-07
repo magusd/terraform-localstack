@@ -65,7 +65,7 @@ provider "aws" {
     mediastore = "http://localhost:4566"
     mediastoredata = "http://localhost:4566"
     mq = "http://localhost:4566"
-    mwaa = "http://mwaa.localhost.localhost.cloud:4566"
+    mwaa = "http://mwaa.localhost.cloud:4566"
     neptune = "http://localhost:4566"
     opensearch = "http://localhost:4566"
     organizations = "http://localhost:4566"
